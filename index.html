@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dave Benaya Willianto - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background-color: #2c3e50;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .navbar .logo {
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    .navbar ul li a {
+      color: #ccc;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #3498db;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(135deg, #2c3e50, #3498db);
+      color: white;
+      padding: 80px 30px;
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .profile-pic {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin: 0 auto 25px;
+      overflow: hidden;
+      background-color: #dce8f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-pic-placeholder {
+      font-size: 60px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero p.subtitle {
+      font-size: 16px;
+      color: #d0e8f7;
+      margin-bottom: 8px;
+    }
+
+    .hero p.desc {
+      font-size: 14px;
+      color: #b3d4ec;
+      margin-bottom: 30px;
+      line-height: 1.7;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      opacity: 0.9;
+    }
+
+    .btn-ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: white;
+    }
+
+    .btn-li {
+      background-color: #0077b5;
+      color: white;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #3498db;
+    }
+
+    /* EDUCATION */
+    .edu-item {
+      background: white;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      border-left: 5px solid #3498db;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .edu-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 4px;
+    }
+
+    .edu-item .school {
+      font-size: 14px;
+      color: #3498db;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+
+    .edu-item .meta {
+      font-size: 13px;
+      color: #888;
+    }
+
+    /* EXPERIENCE */
+    .exp-item {
+      background: white;
+      border-radius: 8px;
+      padding: 20px 25px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .exp-item h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 3px;
+    }
+
+    .exp-item .org {
+      font-size: 14px;
+      color: #3498db;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .exp-item .meta {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 12px;
+    }
+
+    .exp-item ul {
+      padding-left: 18px;
+      font-size: 13px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* COURSES */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .course-card {
+      background: white;
+      border-radius: 8px;
+      padding: 18px 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      border-top: 4px solid #3498db;
+    }
+
+    .course-card h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 5px;
+    }
+
+    .course-card .provider {
+      font-size: 12px;
+      color: #3498db;
+      margin-bottom: 10px;
+    }
+
+    .course-card p {
+      font-size: 13px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .course-card .date {
+      font-size: 11px;
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    /* SKILLS */
+    .skills-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .skill-group {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .skill-group h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 15px;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      background-color: #ebf5fb;
+      color: #2980b9;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid #aed6f1;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #2c3e50;
+      color: #aaa;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 13px;
+      margin-top: 60px;
+    }
+
+    footer a {
+      color: #3498db;
+      text-decoration: none;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 26px; }
+      .navbar ul { gap: 12px; }
+      .skills-container { grid-template-columns: 1fr; }
+    }
+
+    .profile-pic {
+    width: 120px;           /* smaller size */
+    height: 120px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin: 0 auto 25px;
+    overflow: hidden;
+    }
+
+    .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* ensures proper cropping */
+    border-radius: 50%;     /* makes image perfectly round */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="#" class="logo">Dave Benaya Willianto</a>
+    <ul>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+
+      <!-- Profile Picture -->
+    <div class="profile-pic">
+        <img src="img/dave final.jpeg" alt="Profile Pic">
+    </div>
+      <h1>Dave Benaya Willianto</h1>
+      <p class="subtitle">Information Engineering Student at Faculty of Engineering, Universitas Gadjah Mada</p>
+      <p class="desc">
+        I'm an aspiring first-year student passionate about software development and engineering.<br>
+        Currently learning and growing every day!
+      </p>
+
+      <div class="social-buttons">
+        <a href="https://www.instagram.com/dave_bwt/" target="_blank" class="social-btn btn-ig">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+          </svg>
+          Instagram
+        </a>
+        <a href="https://www.linkedin.com/in/dave-benaya-w-b9a349314/" target="_blank" class="social-btn btn-li">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <div class="section" id="education">
+    <h2>🎓 Education</h2>
+
+    <div class="edu-item">
+      <h3>Bachelor of Engineering - Information Engineering</h3>
+      <p class="school">Universitas Gadjah Mada</p>
+      <p class="meta">📅 2025 – Present &nbsp;|&nbsp; 📍 D.I. Yogyakarta</p>
+    </div>
+
+    <div class="edu-item">
+      <h3>Senior High School</h3>
+      <p class="school">SMA Negeri 54 Jakarta</p>
+      <p class="meta">📅 2022 – 2025 &nbsp;|&nbsp; 📍 Jakarta</p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section" id="experience">
+    <h2>🏢 Organizational Experience</h2>
+
+    <div class="exp-item">
+      <h3>Vice Chairman</h3>
+      <p class="org">Scientific Research Club (KIR) - SMAN 54 Jakarta</p>
+      <p class="meta">📅 2023 – 2024 &nbsp;|&nbsp; 📍 Jakarta</p>
+    </div>
+
+    <div class="exp-item">
+      <h3>Head of Prayer & Worship Division</h3>
+      <p class="org">Christian Fellowship (Rohkris) - SMAN 54 Jakarta</p>
+      <p class="meta">📅 2023 – 2024 &nbsp;|&nbsp; 📍 Jakarta</p>
+    </div>
+  </div>
+    <!-- PROJECT & EVENT EXPERIENCE -->
+    <div class="section" id="projects">
+    <h2>🚀 Project & Event Experience</h2>
+
+    <div class="exp-item">
+        <h3>Web Development Staff (Ongoing)</h3>
+        <p class="org">FIND IT! 2026 — Universitas Gadjah Mada</p>
+        <p class="meta">📅 2026 – Present &nbsp;|&nbsp; 📍 Yogyakarta</p>
+    </div>
+
+    <div class="exp-item">
+        <h3>Event Division Staff</h3>
+        <p class="org">ENFORUN 2025 — KMTETI FT UGM</p>
+        <p class="meta">📅 2025 &nbsp;|&nbsp; 📍 Yogyakarta</p>
+    </div>
+
+    </div>
+
+  <!-- COURSES -->
+  <div class="section" id="courses">
+    <h2>📚 Courses & Training</h2>
+    <div class="courses-grid">
+
+      <div class="course-card">
+        <h3>Web Programming Training</h3>
+        <p class="provider">WebHozz</p>
+        <p>PHP and MySQL, CRUD operations, and basic database integration.</p>
+        <p class="date">📅 June 2022 · Jakarta</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Web Design Training</h3>
+        <p class="provider">WebHozz</p>
+        <p>HTML, CSS, JavaScript, and Bootstrap.</p>
+        <p class="date">📅 May 2022 · Jakarta</p>
+      </div>
+
+      <div class="course-card">
+        <h3>Laravel Framework Training</h3>
+        <p class="provider">WebHozz</p>
+        <p>Controllers, models, views, and application configuration.</p>
+        <p class="date">📅 Jakarta</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="section" id="skills">
+    <h2>⚡ Skills</h2>
+    <div class="skills-container">
+
+      <div class="skill-group">
+        <h3>💻 Technical Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Full-Stack Web Dev</span>
+          <span class="skill-tag">HTML / CSS / JS</span>
+          <span class="skill-tag">PHP & MySQL</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">Bootstrap</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Microsoft Office</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <h3>🤝 Soft Skills</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">English Proficiency</span>
+          <span class="skill-tag">Communication</span>
+          <span class="skill-tag">Team Collaboration</span>
+          <span class="skill-tag">Time Management</span>
+          <span class="skill-tag">Adaptability</span>
+          <span class="skill-tag">Initiative</span>
+          <span class="skill-tag">Problem Solving</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Dave Benaya Willianto &nbsp;|&nbsp;
+      <a href="https://www.instagram.com/dave_bwt/" target="_blank">Instagram</a> &nbsp;|&nbsp;
+      <a href="https://www.linkedin.com/in/dave-benaya-w-b9a349314/" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    // smooth scroll for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // highlight active nav link on scroll
+    window.addEventListener('scroll', function() {
+      const sections = document.querySelectorAll('.section');
+      const navLinks = document.querySelectorAll('.navbar ul li a');
+
+      sections.forEach(section => {
+        const top = section.offsetTop - 80;
+        const bottom = top + section.offsetHeight;
+
+        if (window.scrollY >= top && window.scrollY < bottom) {
+          navLinks.forEach(link => {
+            link.style.color = '#ccc';
+            if (link.getAttribute('href') === '#' + section.id) {
+              link.style.color = '#3498db';
+            }
+          });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
